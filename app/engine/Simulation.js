@@ -46,7 +46,7 @@ class Simulation {
     this._onErrorCallback = [];
     this._onStartCallback = [];
     this._timeElapsed = 0;
-    this._timeLimit = 30000;
+    this._timeLimit = 60000;
     this._eventStore = new EventStore();
     this._nextTankId = 1;
     this._nextBulletId = 1;
@@ -252,9 +252,6 @@ class Simulation {
     tank.moveTo(startSlot.x, startSlot.y);
     this._tankList.push(tank);
     this._allTankList.push(tank);
-    if(this._allTankList.length > 2) {
-      this._timeLimit += 2000;
-    }
 
     if(!this._teamMap[aiDefinition.teamName]) {
       this._teamMap[aiDefinition.teamName] = new Team(aiDefinition.teamName);
